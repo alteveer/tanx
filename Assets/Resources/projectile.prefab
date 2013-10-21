@@ -84,7 +84,7 @@ TrailRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ab614263ea0182143b94dfa61ef4c040, type: 2}
+  - {fileID: 2100000, guid: 80a01f028199e3444a420ab89532de24, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -119,14 +119,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63206b39259eac3478568dd07670e48f, type: 3}
+  m_Script: {fileID: 11500000, guid: 01894f8a481caab448d18ad6b10fd29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  despawn_timer: 2
-  projectile_impact: {fileID: 100000, guid: 26d1a0885e2e6a64aac7cf6000994f5b, type: 2}
-  trail_renderer_container: {fileID: 0}
-  trail_renderer: {fileID: 0}
+  despawn_timer: 0
+  projectile_impact: {fileID: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

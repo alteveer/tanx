@@ -2,8 +2,8 @@
 
 var despawn_timer : float;
 var projectile_impact : GameObject;
-var trail_renderer_container : GameObject;
-var trail_renderer : TrailRenderer;
+//var trail_renderer_container : GameObject;
+//var trail_renderer : TrailRenderer;
 
 function Start() {
 	//var trail_renderer : TrailRenderer = trail_renderer_container.GetComponent(TrailRenderer);

@@ -25,7 +25,9 @@ function Start () {
 			 Debug.Log ("\t" + property);
 		}*/
 	}
-	tank = Resources.Load("tank");
+	tank = Resources.Load("tank_01/tank_01");
+	if(tank == null)
+		Debug.Log("tank is null");
 	
 	
 }
@@ -48,7 +50,7 @@ function Update () {
 function spawn_player(player_number:int) {
 	var open_spawn_location = get_open_spawn();
 	if (open_spawn_location) {
-		return Instantiate(tank, spawn_locations[0].transform.position, Quaternion.identity);
+		return Instantiate(tank, open_spawn_location.transform.position, Quaternion.identity);
 	} else {
 		Debug.Log("No free spawns");
 		return false;
