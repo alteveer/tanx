@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01894f8a481caab448d18ad6b10fd29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawn_timer: 0
-  projectile_impact: {fileID: 0}
+  despawn_timer: 3
+  projectile_impact: {fileID: 100000, guid: 66e13ee8e78422749becd45079b52499, type: 2}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

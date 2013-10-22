@@ -23,6 +23,12 @@ function OnCollisionEnter(collision : Collision) {
 		Debug.Log(contact);
 		Debug.DrawRay(contact.point, contact.normal, Color.red);
 	}
+	
+    if(collision.gameObject.tag == "Player") {
+    	Destroy(collision.gameObject);
+    }
+
 	Instantiate(projectile_impact, gameObject.transform.position, gameObject.transform.rotation);
+	
 	Destroy(gameObject);
 }

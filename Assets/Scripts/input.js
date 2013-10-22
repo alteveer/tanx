@@ -1,10 +1,10 @@
 ﻿#pragma strict
 import System.Collections.Generic;
 
-var speed : float = 1.0;
+var speed : float = -100000;
 var speed_max : float = 50.0;
 var rotation_speed : float = 1.0;
-var turret_speed : float = 1.0;
+var turret_speed : float = 50;
 
 var tank : Transform;
 var turret : Transform;
@@ -75,8 +75,8 @@ function FixedUpdate () {
 	}
 
 			
-	force_left = gas;
-	force_right = gas;
+	force_left = -gas;
+	force_right = -gas;
 	//tank.rigidbody.AddRelativeTorque(0, steering * rotation_speed, 0);
 	force_left -= steering;
 	force_right += steering;
@@ -125,11 +125,11 @@ function FixedUpdate () {
 		
 		p.rigidbody.velocity = tank.rigidbody.velocity;
 		
-		p.rigidbody.AddRelativeForce(-500000, 0, 0);
+		p.rigidbody.AddRelativeForce(500000, 0, 0);
 		p.rigidbody.velocity.y = 0;
 
 		tank.rigidbody.AddRelativeForce(
-			turret.transform.TransformDirection(Vector3.right) * 100000);
+			turret.transform.TransformDirection(Vector3.left) * 100000);
 		fire_timer = 0.8;
 	}
 	
