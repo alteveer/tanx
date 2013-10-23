@@ -75,31 +75,36 @@ function FixedUpdate () {
 	}
 
 			
-	force_left = -gas;
-	force_right = -gas;
-	//tank.rigidbody.AddRelativeTorque(0, steering * rotation_speed, 0);
-	force_left -= steering;
-	force_right += steering;
-	
-	force_left *= speed;
-	force_right *= speed;	
-	
-	for(var track:CapsuleCollider in tracks_left) {
-		track.rigidbody.AddRelativeTorque(force_left, 0, 0);
-		Debug.DrawLine(
-			track.rigidbody.transform.position, 
-			track.rigidbody.transform.position + (Vector3(0, 1, 0) * force_left), 
-			Color.red, 0.0, false);
-	}
-	for(var track:CapsuleCollider in tracks_right) {
-		track.rigidbody.AddRelativeTorque(force_right, 0, 0);
-		
-		Debug.DrawLine(
-			track.rigidbody.transform.position, 
-			track.rigidbody.transform.position + (Vector3(0, 1, 0) * force_right), 
-			Color.red, 0.0, false);
+	tank.rigidbody.AddTorque(0, steering * rotation_speed, 0);
+	tank.rigidbody.AddForce(gas * speed, 0, 0);
 
-	}
+//	force_left = -gas;
+//	force_right = -gas;
+//	
+//	force_left -= steering;
+//	force_right += steering;
+//	
+//	force_left *= speed;
+//	force_right *= speed;	
+	
+	
+	
+//	for(var track:CapsuleCollider in tracks_left) {
+//		track.rigidbody.AddRelativeTorque(force_left, 0, 0);
+//		Debug.DrawLine(
+//			track.rigidbody.transform.position, 
+//			track.rigidbody.transform.position + (Vector3(0, 1, 0) * force_left), 
+//			Color.red, 0.0, false);
+//	}
+//	for(var track:CapsuleCollider in tracks_right) {
+//		track.rigidbody.AddRelativeTorque(force_right, 0, 0);
+//		
+//		Debug.DrawLine(
+//			track.rigidbody.transform.position, 
+//			track.rigidbody.transform.position + (Vector3(0, 1, 0) * force_right), 
+//			Color.red, 0.0, false);
+//
+//	}
 	//var gas_left : float = 
 	//if
 	/*

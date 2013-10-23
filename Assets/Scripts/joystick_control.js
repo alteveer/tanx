@@ -62,6 +62,7 @@ function get_open_spawn() {
 	for(var spawn:GameObject in spawn_locations) {
 		var spawn_properties:spawn_enabled = spawn.GetComponent(spawn_enabled);
 		if(spawn_properties.spawn_enabled == 0) {
+			spawn_properties.spawn_enabled += 1;
 			return spawn;
 		}
 	}
