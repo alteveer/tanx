@@ -9,8 +9,8 @@ var turret_speed : float = 50;
 var tank : Transform;
 var turret : Transform;
 
-var tracks_left : List.< CapsuleCollider >;
-var tracks_right : List.< CapsuleCollider >;
+var wheels_left : WheelCollider[];
+var wheels_right : WheelCollider[];
 
 var projectile : Transform;
 var fire_position : Transform;
@@ -18,15 +18,10 @@ var fire_position : Transform;
 var player_number : int;
 
 function Start () {
-	
-
 	tank.rigidbody.centerOfMass = Vector3(0, 0, 0);
-	for(var track:CapsuleCollider in tracks_left) {
-		track.rigidbody.SetMaxAngularVelocity(speed_max);
-	}
-	for(var track:CapsuleCollider in tracks_right) {
-		track.rigidbody.SetMaxAngularVelocity(speed_max);
-	}
+	wheels_left = tank.Find("wheels_l").GetComponentsInChildren.<WheelCollider>();
+	wheels_right = tank.Find("wheels_r").GetComponentsInChildren.<WheelCollider>();
+	
 }
 
 var gas : float;
@@ -69,14 +64,16 @@ function FixedUpdate () {
 	steering = 	Input.GetAxis (LSTICK_X);
 
 	if(gas == 0 && steering == 0) {
-		tank.rigidbody.drag = 5;	
+		tank.rigidbody.drag = 1;	
 	} else {
 		tank.rigidbody.drag = 0;
 	}
 
 			
-	tank.rigidbody.AddTorque(0, steering * rotation_speed, 0);
-	tank.rigidbody.AddForce(gas * speed, 0, 0);
+	tank.rigidbody.transform.rotation.y -= steering * rotation_speed;
+	if(tank.rigidbody.velocity.magnitude < speed_max) {
+		tank.rigidbody.AddForce(-gas * speed, 0, 0);
+	}
 
 //	force_left = -gas;
 //	force_right = -gas;
@@ -143,5 +140,5 @@ function FixedUpdate () {
 function OnGUI() {
 	GUI.Label(Rect(0, 0, 400, 30), 	gas.ToString("0.000"));
 	GUI.Label(Rect(0, 30, 400, 30), steering.ToString("0.000"));
-	for(var wheel:CapsuleCollider in tracks_left) {}
+	
 }
