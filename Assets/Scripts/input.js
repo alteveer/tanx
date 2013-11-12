@@ -63,63 +63,24 @@ function FixedUpdate () {
 	gas = 		Input.GetAxis (LSTICK_Y);
 	steering = 	Input.GetAxis (LSTICK_X);
 
-	if(gas == 0 && steering == 0) {
+	if(gas == 0) {
 		tank.rigidbody.drag = 1;	
 	} else {
 		tank.rigidbody.drag = 0;
 	}
 
 			
-	tank.rigidbody.transform.rotation.y -= steering * rotation_speed;
+	tank.rigidbody.transform.eulerAngles.y += steering * rotation_speed;
 	if(tank.rigidbody.velocity.magnitude < speed_max) {
-		tank.rigidbody.AddForce(-gas * speed, 0, 0);
+		tank.rigidbody.AddRelativeForce(Vector3.left * gas * speed);
 	}
 
-//	force_left = -gas;
-//	force_right = -gas;
-//	
-//	force_left -= steering;
-//	force_right += steering;
-//	
-//	force_left *= speed;
-//	force_right *= speed;	
-	
-	
-	
-//	for(var track:CapsuleCollider in tracks_left) {
-//		track.rigidbody.AddRelativeTorque(force_left, 0, 0);
-//		Debug.DrawLine(
-//			track.rigidbody.transform.position, 
-//			track.rigidbody.transform.position + (Vector3(0, 1, 0) * force_left), 
-//			Color.red, 0.0, false);
-//	}
-//	for(var track:CapsuleCollider in tracks_right) {
-//		track.rigidbody.AddRelativeTorque(force_right, 0, 0);
-//		
-//		Debug.DrawLine(
-//			track.rigidbody.transform.position, 
-//			track.rigidbody.transform.position + (Vector3(0, 1, 0) * force_right), 
-//			Color.red, 0.0, false);
-//
-//	}
-	//var gas_left : float = 
-	//if
-	/*
-	if(tank.rigidbody.velocity.magnitude < speed_max) {
-		tank.rigidbody.velocity+=tank.transform.right * gas);
-	}
-	*/
-												
-	
-	//tank.Rotate(0, rotation, 0);
-	//tank.rigidbody.velocity = Quaternion.AngleAxis(rotation, Vector3.up) * tank.rigidbody.velocity;
-	// Get the horizontal and vertical axis.
-	// By default they are mapped to the arrow keys.
-	// The value is in the range -1 to 1
-		
-
-
+	var chassis_rotation : float = steering * turret_speed * Time.deltaTime;
 	var turret_rotation : float = Input.GetAxis (RSTICK_X) * turret_speed * Time.deltaTime;
+	
+	//turret_rotation -= chassis_rotation;
+	
+	tank.rigidbody.transform.Rotate(0, chassis_rotation, 0);
 	turret.transform.Rotate(0, turret_rotation, 0);
 	
 	if (Input.GetKeyDown(FIRE_PRIMARY) && !(fire_timer > 0.0) ) {
@@ -140,5 +101,7 @@ function FixedUpdate () {
 function OnGUI() {
 	GUI.Label(Rect(0, 0, 400, 30), 	gas.ToString("0.000"));
 	GUI.Label(Rect(0, 30, 400, 30), steering.ToString("0.000"));
+	GUI.Label(Rect(0, 60, 400, 30), tank.rigidbody.velocity.magnitude.ToString("0.000"));
+	GUI.Label(Rect(0, 90, 400, 30), tank.rigidbody.transform.rotation.ToString("0.000"));
 	
 }
