@@ -70,7 +70,7 @@ function FixedUpdate () {
 	}
 
 			
-	tank.rigidbody.transform.eulerAngles.y += steering * rotation_speed;
+	//tank.rigidbody.transform.eulerAngles.y += steering * rotation_speed;
 	if(tank.rigidbody.velocity.magnitude < speed_max) {
 		tank.rigidbody.AddRelativeForce(Vector3.left * gas * speed);
 	}
@@ -86,7 +86,7 @@ function FixedUpdate () {
 	if (Input.GetKeyDown(FIRE_PRIMARY) && !(fire_timer > 0.0) ) {
 		var p:Transform = Instantiate(projectile, fire_position.transform.position, turret.transform.rotation);
 		
-		p.rigidbody.velocity = tank.rigidbody.velocity;
+		//p.rigidbody.velocity = tank.rigidbody.velocity;
 		
 		p.rigidbody.AddRelativeForce(500000, 0, 0);
 		p.rigidbody.velocity.y = 0;
