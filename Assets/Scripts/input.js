@@ -14,6 +14,7 @@ var wheels_right : WheelCollider[];
 
 var projectile : Transform;
 var fire_position : Transform;
+var mine : Transform;
 
 var player_number : int;
 
@@ -29,7 +30,8 @@ var steering : float;
 var force_left : float;
 var force_right : float;
 
-var fire_timer : float;
+var primary_fire_timer : float = 0.8;
+var secondary_fire_timer : float = 1.6;
 
 var LSTICK_X;
 var LSTICK_Y;
@@ -37,6 +39,7 @@ var RSTICK_X;
 var RSTICK_Y;
 var RTRIGGER;
 var FIRE_PRIMARY : KeyCode;
+var FIRE_SECONDARY : KeyCode;
 
 function set_inputs(player_index:int) {
 	LSTICK_X = "JOY" + player_index + "_LSTICK_X";
@@ -44,17 +47,25 @@ function set_inputs(player_index:int) {
 	RSTICK_X = "JOY" + player_index + "_RSTICK_X";
 	RSTICK_Y = "JOY" + player_index + "_RSTICK_Y";
 	FIRE_PRIMARY = KeyCode.Parse(KeyCode, "Joystick"+player_index+"Button5");
-	Debug.Log(FIRE_PRIMARY);
+	FIRE_SECONDARY = KeyCode.Parse(KeyCode, "Joystick"+player_index+"Button4");
 }
 
 function FixedUpdate () {
 	
-	if (fire_timer > 0) {
-		fire_timer -= Time.deltaTime;
+	if (primary_fire_timer > 0) {
+		primary_fire_timer -= Time.deltaTime;
 	}
 	
-	if (fire_timer < 0) {
-		fire_timer = 0;
+	if (primary_fire_timer < 0) {
+		primary_fire_timer = 0;
+	}
+
+	if (secondary_fire_timer > 0) {
+		secondary_fire_timer -= Time.deltaTime;
+	}
+	
+	if (secondary_fire_timer < 0) {
+		secondary_fire_timer = 0;
 	}
 	//Debug.Log(drag.magnitude);
 	Debug.DrawLine(tank.transform.position, tank.transform.position + tank.rigidbody.velocity, Color.red, 0.0, false);
@@ -83,7 +94,7 @@ function FixedUpdate () {
 	tank.rigidbody.transform.Rotate(0, chassis_rotation, 0);
 	turret.transform.Rotate(0, turret_rotation, 0);
 	
-	if (Input.GetKeyDown(FIRE_PRIMARY) && !(fire_timer > 0.0) ) {
+	if (Input.GetKeyDown(FIRE_PRIMARY) && !(primary_fire_timer > 0.0) ) {
 		var p:Transform = Instantiate(projectile, fire_position.transform.position, turret.transform.rotation);
 		
 		//p.rigidbody.velocity = tank.rigidbody.velocity;
@@ -93,9 +104,14 @@ function FixedUpdate () {
 
 		tank.rigidbody.AddRelativeForce(
 			turret.transform.TransformDirection(Vector3.left) * 100000);
-		fire_timer = 0.8;
+		primary_fire_timer = 0.8;
 	}
-	
+	if (Input.GetKeyDown(FIRE_SECONDARY) && !(secondary_fire_timer > 0.0) ) {
+		var m:Transform = Instantiate(mine, tank.rigidbody.transform.position, Quaternion.identity);
+		
+		
+		secondary_fire_timer = 1.6;
+	}	
 }
 
 function OnGUI() {

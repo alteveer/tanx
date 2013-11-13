@@ -456,7 +456,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 949.721802, y: -37.8378906, z: 1255.31775}
+  m_LocalPosition: {x: 922.804382, y: -4.04584917e-16, z: 1250.41003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400042}
@@ -842,13 +842,16 @@ MonoBehaviour:
   wheels_right: []
   projectile: {fileID: 400000, guid: 8c00c7ce177f85e468090b6fbc16af89, type: 2}
   fire_position: {fileID: 400034}
+  mine: {fileID: 400000, guid: 8911c213c4230fa4098ee1f13b591247, type: 2}
   player_number: 0
   gas: 0
   steering: 0
   force_left: 0
   force_right: 0
-  fire_timer: 0
+  primary_fire_timer: .800000012
+  secondary_fire_timer: 1.60000002
   FIRE_PRIMARY: 0
+  FIRE_SECONDARY: 0
 --- !u!146 &14600000
 WheelCollider:
   m_ObjectHideFlags: 1

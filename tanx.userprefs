@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\input.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\prox_mine\ProximityMine.js">
     <Files>
-      <File FileName="Assets\Scripts\input.js" Line="8" Column="1" />
+      <File FileName="Assets\Scripts\input.js" Line="85" Column="37" />
+      <File FileName="Assets\Resources\prox_mine\ProximityMine.js" Line="21" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
