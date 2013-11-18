@@ -12,12 +12,14 @@ function Update () {
 
 function OnTriggerEnter(other:Collider) {
 	if(placement_timer < 0) {
-		var tx:Transform = other.gameObject.transform;
-		
-		while (tx.transform.parent){
-			tx = tx.transform.parent;
+		if(other.gameObject.CompareTag("Player")) {
+			var tx:Transform = other.gameObject.transform;
+			
+			while (tx.transform.parent){
+				tx = tx.transform.parent;
+			}
+			Destroy(tx.gameObject);
+			Destroy(gameObject);
 		}
-		Destroy(tx.gameObject);
-		Destroy(gameObject);
 	}
 }
