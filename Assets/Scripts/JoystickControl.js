@@ -1,6 +1,4 @@
 var players : GameObject[];
-var spawn_locations : GameObject[];
-var tank : GameObject;
 
 var player_a_buttons = [
 	KeyCode.Joystick1Button0,
@@ -9,14 +7,15 @@ var player_a_buttons = [
 	KeyCode.Joystick4Button0
 ];
 
+var spawner:PlayerSpawner;
+
 // Use this for initialization
 function Start () {
+	spawner = GetComponent(PlayerSpawner);
+	
 	players = new GameObject[4];
-	spawn_locations = GameObject.FindGameObjectsWithTag("spawns");
-	for(obj in spawn_locations) {
-		Debug.Log(obj.transform.position);
-		}
-	var controllers = Input.GetJoystickNames();
+
+		var controllers = Input.GetJoystickNames();
 	Debug.Log(typeof(controllers));
 	Debug.Log(controllers);
 	for (var i : String in Input.GetJoystickNames()) {
@@ -24,11 +23,7 @@ function Start () {
 		/*for (var property in i) {
 			 Debug.Log ("\t" + property);
 		}*/
-	}
-	tank = Resources.Load("tank_01/tank_01");
-	if(tank == null)
-		Debug.Log("tank is null");
-	
+	}	
 	
 }
 
@@ -47,26 +42,14 @@ function Update () {
 	}
 }
 
-function spawn_player(player_number:int) {
-	var open_spawn_location = get_open_spawn();
+function spawn_player(player_number:int):GameObject {
+	var open_spawn_location = spawner.get_open_spawn();
 	if (open_spawn_location) {
-		return Instantiate(tank, open_spawn_location.transform.position, Quaternion.identity);
+		//return Instantiate(tank, open_spawn_location.transform.position, Quaternion.identity);
 	} else {
 		Debug.Log("No free spawns");
-		return false;
 	}
 	
-}
-
-function get_open_spawn() {
-	for(var spawn:GameObject in spawn_locations) {
-		var spawn_properties:spawn_enabled = spawn.GetComponent(spawn_enabled);
-		if(spawn_properties.spawn_enabled == 0) {
-			spawn_properties.spawn_enabled += 1;
-			return spawn;
-		}
-	}
-	return false;
 }
 
 function OnGUI () {

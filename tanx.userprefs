@@ -1,17 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\prox_mine\ProximityMine.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\JoystickControl.js">
     <Files>
-      <File FileName="Assets\Resources\prox_mine\ProximityMine.js" Line="1" Column="15" />
-      <File FileName="Assets\Resources\prox_mine\ProximityMine.js" Line="1" Column="15" />
-      <File FileName="Assets\Scripts\input.js" Line="111" Column="3" />
-      <File FileName="Assets\Scripts\spawn_enabled.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\joystick_control.js" Line="1" Column="1" />
-      <File FileName="Assets\Resources\timed_kill.js" Line="31" Column="13" />
+      <File FileName="Assets\Scripts\SpawnPoint.js" Line="18" Column="6" />
+      <File FileName="Assets\Scripts\input.js" Line="1" Column="1" />
+      <File FileName="Assets\Resources\timed_kill.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\JoystickControl.js" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\Weapons\ProximityMine.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerSpawner.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\coal\prj\tanx\Assets\Scripts\JoystickControl.js" line="32" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

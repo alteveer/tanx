@@ -13,7 +13,7 @@ function Update () {
 
 function OnTriggerEnter(other:Collider) {
 	if(placement_timer < 0) {
-		if(other.gameObject.transform.root.gameObject.CompareTag("Player")) {
+		if(other.gameObject.transform.root.CompareTag("Player")) {
 			var tx:Transform = other.gameObject.transform;
 			
 			while (tx.transform.parent){
