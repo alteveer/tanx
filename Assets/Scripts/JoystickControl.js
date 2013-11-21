@@ -8,23 +8,18 @@ var player_a_buttons = [
 ];
 
 var spawner:PlayerSpawner;
+var controllers:String[];
 
 // Use this for initialization
 function Start () {
 	spawner = GetComponent(PlayerSpawner);
-	
 	players = new GameObject[4];
-
-		var controllers = Input.GetJoystickNames();
-	Debug.Log(typeof(controllers));
-	Debug.Log(controllers);
-	for (var i : String in Input.GetJoystickNames()) {
-		Debug.Log ("Controller: " + i);
-		/*for (var property in i) {
-			 Debug.Log ("\t" + property);
-		}*/
-	}	
 	
+	InvokeRepeating("CheckControllers", 0, 1);
+}
+
+function CheckControllers() {
+	controllers = Input.GetJoystickNames();
 }
 
 // Update is called once per frame
@@ -53,5 +48,10 @@ function spawn_player(player_number:int):GameObject {
 }
 
 function OnGUI () {
-	GUI.Label (Rect (25, 25, 100, 30), "Test");
+	for (var i = 0; i < players.Length; i++) {
+
+		GUILayout.Label("Player " + (i+1) + ": " + 
+			((controllers.Length > i) ? controllers[i] : "Please connect a controller."));
+	}	
+
 }
