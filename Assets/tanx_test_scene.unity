@@ -335,9 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  player_a_buttons: 
   spawner: {fileID: 0}
   controllers: []
+  player_prefab: {fileID: 0}
 --- !u!4 &1539297113
 Transform:
   m_ObjectHideFlags: 0
