@@ -555,6 +555,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!23 &2300002
 Renderer:
   m_ObjectHideFlags: 1
@@ -573,6 +576,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!23 &2300004
 Renderer:
   m_ObjectHideFlags: 1
@@ -591,6 +597,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!23 &2300006
 Renderer:
   m_ObjectHideFlags: 1
@@ -609,6 +618,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -761,6 +773,9 @@ TrailRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
   m_Time: 5
   m_StartWidth: .400000006
   m_EndWidth: .400000006
@@ -800,6 +815,9 @@ TrailRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
   m_Time: 5
   m_StartWidth: .400000006
   m_EndWidth: .400000006
@@ -829,29 +847,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 100028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d0261a09d0d2647aaeeb6dd173536d, type: 3}
+  m_Script: {fileID: 11500000, guid: b5ac56e2b83e66a43903d39a603296f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10000
-  speed_max: 15
+  speed_max: 50
   rotation_speed: 1
   turret_speed: 50
-  tank: {fileID: 400028}
-  turret: {fileID: 400022}
+  turret: {fileID: 0}
   wheels_left: []
   wheels_right: []
-  projectile: {fileID: 400000, guid: 8c00c7ce177f85e468090b6fbc16af89, type: 2}
-  fire_position: {fileID: 400034}
-  mine: {fileID: 400000, guid: 8911c213c4230fa4098ee1f13b591247, type: 2}
-  player_number: 0
+  wheels: []
+  projectile: {fileID: 0}
+  fire_position: {fileID: 0}
+  mine: {fileID: 0}
+  _player_reference: {fileID: 0}
   gas: 0
   steering: 0
   force_left: 0
   force_right: 0
   primary_fire_timer: .800000012
   secondary_fire_timer: 1.60000002
-  FIRE_PRIMARY: 0
-  FIRE_SECONDARY: 0
 --- !u!146 &14600000
 WheelCollider:
   m_ObjectHideFlags: 1

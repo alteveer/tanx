@@ -8,7 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: brain
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &11400000
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -35,9 +36,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e473ad2701e35bd409d4febc72d80757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
+  player_a_buttons: 5e01000072010000860100009a010000
+  spawner: {fileID: 0}
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670d668e0469afe4eba6b7b94bb8037f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn_locations: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
