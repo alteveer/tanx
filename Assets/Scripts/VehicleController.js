@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var speed : float = -100000;
+var speed : float = 10000;
 var speed_max : float = 50.0;
 var rotation_speed : float = 1.0;
 var turret_speed : float = 50;
@@ -23,8 +23,11 @@ function Start () {
 	wheels_right = gameObject.Find("wheels_r").GetComponentsInChildren.<WheelCollider>();
 	wheels = gameObject.GetComponentsInChildren.<WheelCollider>();
 	
-	turret = gameObject.Find("turret");
-	fire_position = gameObject.Find("fire_position");
+	
+	turret = Instantiate(Resources.Load("Weapons/cannon_105mm"), 
+		gameObject.Find("turret_attach_point").transform.position, Quaternion.identity );
+	turret.transform.parent = gameObject.transform;
+	fire_position = turret.Find("fire_position");
 
 }
 

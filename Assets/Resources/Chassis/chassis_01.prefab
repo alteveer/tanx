@@ -170,11 +170,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400022}
-  - 64: {fileID: 6400004}
-  - 33: {fileID: 3300004}
-  - 23: {fileID: 2300004}
   m_Layer: 0
-  m_Name: turret
+  m_Name: turret_attach_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +206,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 54: {fileID: 5400016}
   m_Layer: 0
-  m_Name: tank_01
+  m_Name: chassis_01
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +453,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 922.804382, y: -4.04584917e-16, z: 1250.41003}
+  m_LocalPosition: {x: 927.518311, y: -2.79834645e-16, z: 1245.22253}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400042}
@@ -579,27 +576,6 @@ Renderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
---- !u!23 &2300004
-Renderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100022}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 461e20718ddfdd64fb51478cebb20509, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortingLayerID: 0
 --- !u!23 &2300006
 Renderer:
   m_ObjectHideFlags: 1
@@ -635,13 +611,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_Mesh: {fileID: 4300038, guid: 058bd3cd34081f843985f3c5b39ef61b, type: 3}
---- !u!33 &3300004
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100022}
-  m_Mesh: {fileID: 4300024, guid: 058bd3cd34081f843985f3c5b39ef61b, type: 3}
 --- !u!33 &3300006
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -690,19 +659,6 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 33b4dbd82ca418f4fbc464b2ebe8f60c, type: 3}
---- !u!64 &6400004
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100022}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 1
-  m_Mesh: {fileID: 4300024, guid: 058bd3cd34081f843985f3c5b39ef61b, type: 3}
 --- !u!64 &6400006
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -855,11 +811,11 @@ MonoBehaviour:
   rotation_speed: 1
   turret_speed: 50
   turret: {fileID: 0}
+  fire_position: {fileID: 0}
   wheels_left: []
   wheels_right: []
   wheels: []
   projectile: {fileID: 0}
-  fire_position: {fileID: 0}
   mine: {fileID: 0}
   _player_reference: {fileID: 0}
   gas: 0

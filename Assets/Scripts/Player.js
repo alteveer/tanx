@@ -14,12 +14,20 @@ var A_BUTTON : KeyCode;
 
 var START_BUTTON : KeyCode;
 
-var alive:boolean;
 var respawn_timer:float;
 
+var alive:boolean;
 var pawn:GameObject;
 
 var spawner:PlayerSpawner;
+
+function Start () {
+	alive = false;
+	respawn_timer = 0.0;
+	
+	_vehicle_prefab = Resources.Load("Chassis/chassis_01");
+	spawner = GameObject.Find("/brain").GetComponent(PlayerSpawner);
+}
 
 function set_controller_index(index:int):void {
 	_controller_index = index;
@@ -38,14 +46,6 @@ function get_controller_index():int {
 	return _controller_index;
 }
 
-function Start () {
-	alive = false;
-	respawn_timer = 0.0;
-	
-	_vehicle_prefab = Resources.Load("tank_01/tank_01");
-	spawner = GameObject.Find("/brain").GetComponent(PlayerSpawner);
-}
-
 function Update () {
 	if(alive) {
 	
@@ -57,9 +57,12 @@ function Update () {
 				Debug.Log("pressed a");
 				var spawn:SpawnPoint = spawner.get_open_spawn();
 				if(spawn) {
-					var pawn:GameObject = Instantiate(
+					pawn = Instantiate(
 						_vehicle_prefab, spawn.transform.position, spawn.transform.rotation);
 					pawn.GetComponent(VehicleController).player_reference = this;
+					pawn.AddComponent(Health);
+					pawn.GetComponent(Health).armor = 100;
+					pawn.GetComponent(Health).health = 100;
 					alive = true;
 					
 				} else {

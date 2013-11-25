@@ -4,6 +4,7 @@ var despawn_timer : float;
 var projectile_impact : GameObject;
 //var trail_renderer_container : GameObject;
 //var trail_renderer : TrailRenderer;
+var damage: float;
 
 function Start() {
 	//var trail_renderer : TrailRenderer = trail_renderer_container.GetComponent(TrailRenderer);
@@ -24,8 +25,8 @@ function OnCollisionEnter(collision : Collision) {
 		Debug.DrawRay(contact.point, contact.normal, Color.red);
 	}
 	
-    if(collision.gameObject.tag == "Player") {
-    	Destroy(collision.gameObject);
+    if(collision.gameObject.transform.root.tag == "Player") {
+    	collision.gameObject.transform.root.GetComponent(Health).damage(damage);
     }
 
 	Instantiate(projectile_impact, gameObject.transform.position, gameObject.transform.rotation);
