@@ -12,22 +12,24 @@ var wheels_left : WheelCollider[];
 var wheels_right : WheelCollider[];
 var wheels : WheelCollider[];
 
-var projectile : Transform;
-var mine : Transform;
+var projectile_prefab : GameObject;
+var mine_prefab : GameObject;
 
 var _player_reference:Player;
 
 function Start () {
-	gameObject.rigidbody.centerOfMass = Vector3(0, 0, 0);
+	
 	wheels_left = gameObject.Find("wheels_l").GetComponentsInChildren.<WheelCollider>();
 	wheels_right = gameObject.Find("wheels_r").GetComponentsInChildren.<WheelCollider>();
 	wheels = gameObject.GetComponentsInChildren.<WheelCollider>();
-	
 	
 	turret = Instantiate(Resources.Load("Weapons/cannon_105mm"), 
 		gameObject.Find("turret_attach_point").transform.position, Quaternion.identity );
 	turret.transform.parent = gameObject.transform;
 	fire_position = turret.Find("fire_position");
+	projectile_prefab = Resources.Load("Weapons/projectile");
+	mine_prefab = Resources.Load("Weapons/mine");
+	gameObject.rigidbody.centerOfMass = Vector3(0, 0, 0);
 
 }
 
@@ -96,7 +98,7 @@ function FixedUpdate () {
 	turret.transform.Rotate(0, turret_rotation, 0);
 	
 	if (Input.GetKeyDown(_player_reference.FIRE_PRIMARY) && !(primary_fire_timer > 0.0) ) {
-		var p:Transform = Instantiate(projectile, fire_position.transform.position, turret.transform.rotation);
+		var p:GameObject = Instantiate(projectile_prefab, fire_position.transform.position, turret.transform.rotation);
 		
 		//p.rigidbody.velocity = gameObject.rigidbody.velocity;
 		
@@ -108,7 +110,7 @@ function FixedUpdate () {
 		primary_fire_timer = 0.8;
 	}
 	if (Input.GetKeyDown(_player_reference.FIRE_SECONDARY) && !(secondary_fire_timer > 0.0) ) {
-		var m:Transform = Instantiate(mine, gameObject.rigidbody.transform.position, Quaternion.identity);
+		var m:GameObject = Instantiate(mine_prefab, gameObject.rigidbody.transform.position, Quaternion.identity);
 		
 		
 		secondary_fire_timer = 1.6;

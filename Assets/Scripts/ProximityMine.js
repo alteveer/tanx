@@ -2,9 +2,10 @@
 
 var placement_timer:float = 3.0;
 var explosion_fx:GameObject;
+var damage:float = 120;
 
 function Start () {
-	
+	explosion_fx = Resources.Load("generic_explosion");
 }
 
 function Update () {
@@ -13,18 +14,11 @@ function Update () {
 
 function OnTriggerEnter(other:Collider) {
 	if(placement_timer < 0) {
-		if(other.gameObject.transform.root.CompareTag("Player")) {
-			var tx:Transform = other.gameObject.transform;
-			
-			while (tx.transform.parent){
-				tx = tx.transform.parent;
-			}
-			
+		if(other.gameObject.transform.root.CompareTag("Player")) {			
 			Instantiate(explosion_fx, gameObject.transform.position, gameObject.transform.rotation);
-			Instantiate(explosion_fx, tx.gameObject.transform.position, Quaternion.identity);
-
-			Destroy(tx.gameObject);
 			Destroy(gameObject);
+			
+			other.gameObject.GetComponent(Health).damage(damage);
 			
 		}
 	}
