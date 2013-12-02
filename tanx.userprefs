@@ -1,15 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\JoystickControl.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Projectile.js">
     <Files>
-      <File FileName="Assets\Scripts\PlayerSpawner.js" Line="20" Column="1" />
+      <File FileName="Assets\Scripts\PlayerSpawner.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SpawnPoint.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\JoystickControl.js" Line="13" Column="1" />
-      <File FileName="Assets\Scripts\Projectile.js" Line="4" Column="22" />
-      <File FileName="Assets\Scripts\Health.js" Line="29" Column="19" />
-      <File FileName="Assets\Scripts\VehicleController.js" Line="26" Column="15" />
-      <File FileName="Assets\Scripts\ProximityMine.js" Line="6" Column="1" />
+      <File FileName="Assets\Scripts\JoystickControl.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Projectile.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
