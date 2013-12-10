@@ -1,6 +1,7 @@
 var players : GameObject[];
 
 var start_buttons = new Array(
+	KeyCode.Return,
 	KeyCode.Joystick1Button7,
 	KeyCode.Joystick2Button7,
 	KeyCode.Joystick3Button7,
@@ -17,7 +18,7 @@ var player_prefab:GameObject;
 function Start () {
 	player_prefab = Resources.Load("player");
 	
-	players = new GameObject[4];
+	players = new GameObject[5];
 	
 	_last_controllers_length = 0;
 	CheckControllers();
@@ -41,10 +42,10 @@ function Update () {
 	
 	for(var k = 0; k < start_buttons.length; k++) {		
 		if(Input.GetKeyDown(start_buttons[k])) {		
-			Debug.Log("Player " + (k+1) + " pressed " + start_buttons[k]);		
+			Debug.Log("Player " + (k) + " pressed " + start_buttons[k]);		
 			if (players[k] == null) {
 				players[k] = Instantiate(player_prefab, Vector3(), Quaternion.identity);
-				players[k].GetComponent(Player).set_controller_index(k+1);
+				players[k].GetComponent(Player).set_controller_index(k);
 			} else {
 				//TODO: pause menu?
 			}
@@ -57,7 +58,7 @@ function Update () {
 function OnGUI () {
 	for (var i = 0; i < players.Length; i++) {
 
-		GUILayout.Label("Player " + (i+1) + ": " +
+		GUILayout.Label("Player " + (i) + ": " +
 			((players[i] != null) ? players[i] : "Press start to play."));
 			//((controllers.Length > i) ? controllers[i] : "Please connect a controller."));
 	}	

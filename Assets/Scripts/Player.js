@@ -31,15 +31,31 @@ function Start () {
 
 function set_controller_index(index:int):void {
 	_controller_index = index;
-	LSTICK_X = "JOY" + index + "_LSTICK_X";
-	LSTICK_Y = "JOY" + index + "_LSTICK_Y";
-	RSTICK_X = "JOY" + index + "_RSTICK_X";
-	RSTICK_Y = "JOY" + index + "_RSTICK_Y";
-	FIRE_PRIMARY = KeyCode.Parse(KeyCode, "Joystick"+index+"Button5");
-	FIRE_SECONDARY = KeyCode.Parse(KeyCode, "Joystick"+index+"Button4");
-	A_BUTTON = KeyCode.Parse(KeyCode, "Joystick"+index+"Button0");
-	
-	START_BUTTON = KeyCode.Parse(KeyCode, "Joystick"+index+"Button7");
+	if(_controller_index > 0) { // 0 == keyboard
+		LSTICK_X = "JOY" + index + "_LSTICK_X";
+		LSTICK_Y = "JOY" + index + "_LSTICK_Y";
+		RSTICK_X = "JOY" + index + "_RSTICK_X";
+		RSTICK_Y = "JOY" + index + "_RSTICK_Y";
+		
+		FIRE_PRIMARY = KeyCode.Parse(KeyCode, "Joystick"+index+"Button5");
+		FIRE_SECONDARY = KeyCode.Parse(KeyCode, "Joystick"+index+"Button4");
+		//A_BUTTON = KeyCode.Parse(KeyCode, "Joystick"+index+"Button0");
+		
+		START_BUTTON = KeyCode.Parse(KeyCode, "Joystick"+index+"Button7");
+	} else {
+		LSTICK_X = "KB_LSTICK_X";
+		LSTICK_Y = "KB_LSTICK_Y";
+		RSTICK_X = "KB_RSTICK_X";
+		RSTICK_Y = "KB_RSTICK_Y";
+		
+		FIRE_PRIMARY = KeyCode.Space;
+		FIRE_SECONDARY = KeyCode.LeftShift;
+		//A_BUTTON = KeyCode.Parse(KeyCode, "Joystick"+index+"Button0");
+		
+		START_BUTTON = KeyCode.Return;
+
+
+	}
 }
 
 function get_controller_index():int {
@@ -53,7 +69,7 @@ function Update () {
 		if(respawn_timer > 0.0) {
 			respawn_timer -= Time.deltaTime;
 		} else {
-			if(Input.GetKeyDown(A_BUTTON)) {	
+			if(Input.GetKeyDown(FIRE_PRIMARY)) {	
 				Debug.Log("pressed a");
 				var spawn:SpawnPoint = spawner.get_open_spawn();
 				if(spawn) {
