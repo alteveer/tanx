@@ -81,6 +81,11 @@ function Update () {
 					pawn.GetComponent(Health).health = 100;
 					alive = true;
 					
+					var main_cam = GameObject.Find("/Main Camera").GetComponent(FollowPlayer);
+					main_cam.follow_target = pawn;
+					var mini_cam = GameObject.Find("/MinimapCamera");
+					
+
 				} else {
 					Debug.LogError("No free spawns");
 				}

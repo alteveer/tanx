@@ -27,3 +27,4 @@ function get armor():float { return _armor; }
 function set armor(value) { _armor = value; }
 
 function kill() {}
+function drown() { Debug.Log(this + " drowned."); }

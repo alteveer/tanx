@@ -45,7 +45,8 @@ function Update () {
 			Debug.Log("Player " + (k) + " pressed " + start_buttons[k]);		
 			if (players[k] == null) {
 				players[k] = Instantiate(player_prefab, Vector3(), Quaternion.identity);
-				players[k].GetComponent(Player).set_controller_index(k);
+				players[k].GetComponent(Player).set_controller_index(k);	
+								
 			} else {
 				//TODO: pause menu?
 			}
