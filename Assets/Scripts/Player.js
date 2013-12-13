@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 var _controller_index:int = -1;
-var _vehicle_prefab:GameObject;
+var chassis_prefab:GameObject;
 
 var LSTICK_X;
 var LSTICK_Y;
@@ -25,7 +25,7 @@ function Start () {
 	alive = false;
 	respawn_timer = 0.0;
 	
-	_vehicle_prefab = Resources.Load("Chassis/chassis_01");
+	chassis_prefab = Resources.Load("Chassis/chassis_01");
 	spawner = GameObject.Find("/brain").GetComponent(PlayerSpawner);
 }
 
@@ -74,16 +74,16 @@ function Update () {
 				var spawn:SpawnPoint = spawner.get_open_spawn();
 				if(spawn) {
 					pawn = Instantiate(
-						_vehicle_prefab, spawn.transform.position, spawn.transform.rotation);
+						chassis_prefab, spawn.transform.position, spawn.transform.rotation);
 					pawn.GetComponent(VehicleController).player_reference = this;
 					pawn.AddComponent(Health);
 					pawn.GetComponent(Health).armor = 100;
 					pawn.GetComponent(Health).health = 100;
 					alive = true;
 					
-					var main_cam = GameObject.Find("/Main Camera").GetComponent(FollowPlayer);
-					main_cam.follow_target = pawn;
-					var mini_cam = GameObject.Find("/MinimapCamera");
+					//var main_cam = GameObject.Find("/Main Camera").GetComponent(FollowPlayer);
+					//main_cam.follow_target = pawn;
+					//var mini_cam = GameObject.Find("/MinimapCamera");
 					
 
 				} else {

@@ -1,16 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\KillTrigger.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\VehicleController.js">
     <Files>
-      <File FileName="Assets\Scripts\Player.js" Line="85" Column="1" />
-      <File FileName="Assets\Scripts\VehicleController.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpawnPoint.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.js" Line="41" Column="49" />
+      <File FileName="Assets\Scripts\VehicleController.js" Line="101" Column="36" />
       <File FileName="Assets\Scripts\JoystickControl.js" Line="49" Column="5" />
-      <File FileName="Assets\Scripts\FollowPlayer.js" Line="8" Column="76" />
-      <File FileName="Assets\Scripts\KillTrigger.js" Line="12" Column="34" />
-      <File FileName="Assets\Scripts\PlayerSpawner.js" Line="11" Column="19" />
-      <File FileName="Assets\Scripts\SpawnPoint.js" Line="10" Column="1" />
-      <File FileName="Assets\Scripts\Health.js" Line="26" Column="28" />
-      <File FileName="Assets\Scripts\Projectile.js" Line="29" Column="42" />
+      <File FileName="Assets\Scripts\FollowPlayer.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\KillTrigger.js" Line="11" Column="33" />
+      <File FileName="Assets\Scripts\PlayerSpawner.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpawnPoint.js" Line="11" Column="19" />
+      <File FileName="Assets\Scripts\Health.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Projectile.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

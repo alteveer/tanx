@@ -90,12 +90,18 @@ function FixedUpdate () {
 	}
 
 	var chassis_rotation : float = steering * turret_speed * Time.deltaTime;
-	var turret_rotation : float = Input.GetAxis (_player_reference.RSTICK_X) * turret_speed * Time.deltaTime;
+	gameObject.rigidbody.transform.Rotate(0, chassis_rotation, 0);
+	var turret_rotation : Vector3 = Vector3(
+		Input.GetAxis (_player_reference.RSTICK_X),
+		0,
+		-Input.GetAxis (_player_reference.RSTICK_Y));
 	
 	//turret_rotation -= chassis_rotation;
-	
-	gameObject.rigidbody.transform.Rotate(0, chassis_rotation, 0);
-	turret.transform.Rotate(0, turret_rotation, 0);
+	//turret.transform.Rotate(0, turret_rotation, 0);
+	if(turret_rotation.magnitude > 0.2) {
+		turret.transform.LookAt(turret.transform.position + turret_rotation); 
+		turret.transform.Rotate(0, 90, 0);	
+	}	
 	
 	if (Input.GetKeyDown(_player_reference.FIRE_PRIMARY) && !(primary_fire_timer > 0.0) ) {
 		var p:GameObject = Instantiate(projectile_prefab, fire_position.transform.position, turret.transform.rotation);

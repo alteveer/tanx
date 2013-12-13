@@ -1481,6 +1481,10 @@ Prefab:
       propertyPath: m_Name
       value: spawn_plate
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: d775b8a010027414db34fbbcfa61f521, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d775b8a010027414db34fbbcfa61f521, type: 2}
   m_RootGameObject: {fileID: 700407475}

@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10000
-  speed_max: 50
+  speed_max: 10
   rotation_speed: 1
   turret_speed: 50
   turret: {fileID: 0}
